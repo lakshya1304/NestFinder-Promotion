@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NestFinders Promo</title>
+    <style>
+      :root {
+        --bg: #07111f;
+        --bg2: #0b1730;
+        --card: rgba(255, 255, 255, 0.08);
+        --line: rgba(255, 255, 255, 0.1);
+        --text: #f7fbff;
+        --muted: #a3b4c8;
+        --c1: #5ee7ff;
+        --c2: #5f7dff;
+        --c3: #8cf1b8;
+      }
+
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: Arial, Helvetica, sans-serif;
+        min-height: 100vh;
+        color: var(--text);
+        background:
+          radial-gradient(
+            circle at top left,
+            rgba(94, 231, 255, 0.18),
+            transparent 28%
+          ),
+          radial-gradient(
+            circle at right top,
+            rgba(95, 125, 255, 0.15),
+            transparent 24%
+          ),
+          linear-gradient(135deg, var(--bg) 0%, var(--bg2) 100%);
+        display: grid;
+        place-items: center;
+        padding: 20px;
+      }
+
+      .promo {
+        width: 100%;
+        max-width: 980px;
+        border: 1px solid var(--line);
+        background: linear-gradient(
+          180deg,
+          rgba(255, 255, 255, 0.08),
+          rgba(255, 255, 255, 0.05)
+        );
+        border-radius: 30px;
+        overflow: hidden;
+        box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+        backdrop-filter: blur(14px);
+      }
+
+      .top {
+        padding: 28px 28px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+      }
+
+      .logo {
+        width: 52px;
+        height: 52px;
+        border-radius: 18px;
+        display: grid;
+        place-items: center;
+        font-size: 22px;
+        font-weight: 800;
+        color: #05111e;
+        background: linear-gradient(135deg, var(--c1), var(--c2));
+        box-shadow: 0 12px 30px rgba(94, 231, 255, 0.25);
+      }
+
+      .brand h1 {
+        font-size: 24px;
+      }
+
+      .brand p {
+        color: var(--muted);
+        font-size: 13px;
+        margin-top: 3px;
+      }
+
+      .badge {
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: rgba(94, 231, 255, 0.1);
+        border: 1px solid rgba(94, 231, 255, 0.2);
+        color: var(--c1);
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        white-space: nowrap;
+      }
+
+      .hero {
+        padding: 18px 28px 10px;
+        display: grid;
+        grid-template-columns: 1.15fr 0.85fr;
+        gap: 22px;
+        align-items: center;
+      }
+
+      .hero h2 {
+        font-size: clamp(34px, 5vw, 62px);
+        line-height: 0.96;
+        margin-bottom: 14px;
+      }
+
+      .hero p {
+        color: var(--muted);
+        font-size: 17px;
+        max-width: 620px;
+      }
+
+      .highlights {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin-top: 20px;
+      }
+
+      .chip {
+        padding: 10px 14px;
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.07);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        font-size: 13px;
+        color: #e9f5ff;
+      }
+
+      .mock {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.06);
+        border-radius: 26px;
+        padding: 18px;
+      }
+
+      .mock-card {
+        background: rgba(255, 255, 255, 0.06);
+        border: 1px solid rgba(255, 255, 255, 0.08);
+        border-radius: 20px;
+        padding: 16px;
+        margin-bottom: 12px;
+      }
+
+      .mock-card:last-child {
+        margin-bottom: 0;
+      }
+
+      .mock small,
+      .feature p,
+      .bottom p,
+      .mock-card p {
+        color: var(--muted);
+      }
+
+      .mock strong {
+        display: block;
+        margin: 8px 0 6px;
+        font-size: 18px;
+      }
+
+      .features {
+        padding: 18px 28px;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 14px;
+      }
+
+      .feature {
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.05);
+        border-radius: 22px;
+        padding: 18px;
+      }
+
+      .feature h3 {
+        font-size: 17px;
+        margin-bottom: 8px;
+      }
+
+      .feature p {
+        font-size: 14px;
+        line-height: 1.55;
+      }
+
+      .bottom {
+        margin: 8px 28px 28px;
+        padding: 22px;
+        border-radius: 24px;
+        border: 1px solid rgba(140, 241, 184, 0.18);
+        background: linear-gradient(
+          135deg,
+          rgba(94, 231, 255, 0.08),
+          rgba(95, 125, 255, 0.08)
+        );
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .bottom h3 {
+        font-size: 28px;
+        margin-bottom: 8px;
+      }
+
+      .cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 180px;
+        padding: 15px 22px;
+        border-radius: 16px;
+        background: linear-gradient(135deg, var(--c1), var(--c2));
+        color: #04111f;
+        font-weight: 800;
+        text-decoration: none;
+      }
+
+      @media (max-width: 900px) {
+        .hero,
+        .features,
+        .bottom {
+          grid-template-columns: 1fr;
+        }
+        .hero {
+          display: grid;
+        }
+        .features {
+          grid-template-columns: 1fr 1fr;
+        }
+        .bottom {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .top,
+        .hero,
+        .features {
+          padding-left: 18px;
+          padding-right: 18px;
+        }
+        .top {
+          flex-direction: column;
+          align-items: flex-start;
+        }
+        .features {
+          grid-template-columns: 1fr;
+        }
+        .bottom {
+          margin-left: 18px;
+          margin-right: 18px;
+        }
+        .badge {
+          white-space: normal;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="promo">
+      <div class="top">
+        <div class="brand">
+          <div class="logo">N</div>
+          <div>
+            <h1>NestFinders</h1>
+            <p>Student living, simplified</p>
+          </div>
+        </div>
+        <div class="badge">AI-powered bachelor-life support platform</div>
+      </div>
+
+      <div class="hero">
+        <div>
+          <h2>One app for room, food, services, support, and student life.</h2>
+          <p>
+            NestFinders helps students find verified accommodation, nearby mess
+            plans, local services, old goods, roommate matches, and emergency
+            support — all inside one trusted platform.
+          </p>
+
+          <div class="highlights">
+            <span class="chip">Verified Accommodation</span>
+            <span class="chip">Mess & Menus</span>
+            <span class="chip">Laundry & Water</span>
+            <span class="chip">Old Goods Marketplace</span>
+            <span class="chip">AI Roommate Match</span>
+            <span class="chip">Health & SOS Support</span>
+          </div>
+        </div>
+
+        <div class="mock">
+          <div class="mock-card">
+            <small>Recommended PG</small>
+            <strong>Shanti Boys Hostel</strong>
+            <p>₹5,200/month • 1.2 km • Wi-Fi • Laundry</p>
+          </div>
+          <div class="mock-card">
+            <small>Mess Plan</small>
+            <strong>Pure Veg Monthly</strong>
+            <p>Breakfast + Lunch + Dinner • ₹2,499</p>
+          </div>
+          <div class="mock-card">
+            <small>Smart Support</small>
+            <strong>Roommate Match 92%</strong>
+            <p>Health quick help • Emergency SOS • Daily services</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="features">
+        <div class="feature">
+          <h3>Accommodation</h3>
+          <p>
+            Search PGs, hostels, and rooms with filters for budget, distance,
+            amenities, and college.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Mess Services</h3>
+          <p>
+            See weekly menus, meal timings, hygiene score, and flexible
+            subscription plans.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Local Services</h3>
+          <p>
+            Laundry, water jars, repairs, pharmacy, transport, stationery, and
+            more.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Marketplace</h3>
+          <p>
+            Buy and sell used student essentials like books, mattresses, tables,
+            and electronics.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>AI Features</h3>
+          <p>
+            Smart suggestions, roommate matching, support chatbot, and student
+            guidance.
+          </p>
+        </div>
+        <div class="feature">
+          <h3>Emergency Help</h3>
+          <p>
+            Basic health support, nearby clinics/pharmacy suggestions, and
+            one-tap SOS flow.
+          </p>
+        </div>
+      </div>
+
+      <div class="bottom">
+        <div>
+          <h3>Built for students. Useful for every day.</h3>
+          <p>
+            Move smarter. Live easier. Manage room, food, services, and support
+            from one platform.
+          </p>
+        </div>
+        <a class="cta" href="#">Get Started</a>
+      </div>
+    </section>
+  </body>
+</html>
